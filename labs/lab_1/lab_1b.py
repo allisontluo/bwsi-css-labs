@@ -45,6 +45,15 @@ def get_santitized_number(prompt: str) -> float:
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+def get_santitized_number(prompt:str) -> float:
+    while True:
+        try:
+            number = float(input(prompt))
+            return number
+        except ValueError:
+            print("Invalid input, please enter a valid number.")
+
+
 def main():
     
     print(f"===== Simple Calculator =====")
