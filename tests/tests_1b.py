@@ -37,5 +37,25 @@ def test_invalid_operation():
     with pytest.raises(ValueError, match="Invalid operation. Please choose from 'add', 'subtract', 'multiply', or 'divide'."):
         simple_calculator("", 5, 3)                     # Test for empty operation
 
+def test_addition_edge_cases():
+    assert simple_calculator("add", 1000000, 2000000) == 3000000
+    assert simple_calculator("add", 3.5, 2.5) == 6.0
+    assert simple_calculator("add", -7, -8) == -15
+
+def test_subtraction_edge_cases():
+    assert simple_calculator("subtract", 10, 10) == 0
+    assert simple_calculator("subtract", 3.5, 1.2) == 2.3
+    assert simple_calculator("subtract", -5, 4) == -9
+
+def test_multiplication_edge_cases():
+    assert simple_calculator("multiply", -3, -2) == 6
+    assert simple_calculator("multiply", 2.5, 4) == 10.0
+    assert simple_calculator("multiply", 1, 999) == 999
+
+def test_division_edge_cases():
+    assert simple_calculator("divide", -9, -3) == 3
+    assert simple_calculator("divide", 0, 5) == 0
+    assert simple_calculator("divide", 7.5, 2.5) == 3.0
+
 if __name__ == "__main__":
     pytest.main()
